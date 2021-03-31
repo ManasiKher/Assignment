@@ -60,26 +60,26 @@ class Converters {
 
         @TypeConverter
         @JvmStatic
-        fun fromClouds(wind: Clouds?): Double? {
-            return wind?.all
+        fun fromClouds(clouds: Clouds?): Double? {
+            return clouds?.all
         }
 
         @TypeConverter
         @JvmStatic
-        fun toClouds(wind: Double?): Clouds? {
-            return wind?.let { Clouds(it) }
+        fun toClouds(clouds: Double?): Clouds? {
+            return clouds?.let { Clouds(it) }
         }
 
         @TypeConverter
         @JvmStatic
-        fun fromClouds(wind: Clouds?): Double? {
-            return wind?.all
+        fun fromSystemData(systemData: SystemData?): Double? {
+            return systemData?.type
         }
 
         @TypeConverter
         @JvmStatic
-        fun toClouds(wind: Double?): Clouds? {
-            return wind?.let { Clouds(it) }
+        fun toSystemData(sysData: Double?): SystemData? {
+            return sysData?.let { SystemData(it) }
         }
     }
 }

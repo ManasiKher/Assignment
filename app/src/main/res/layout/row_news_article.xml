@@ -27,7 +27,6 @@
                 android:id="@+id/ivNewsImage"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/image_size"
-                android:contentDescription="@string/news_image"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/loading_banner_image" />
 
@@ -70,8 +69,7 @@
             android:maxLines="2"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/textview_size_small"
-            tools:text="@string/str_test_date" />
+            android:textSize="@dimen/textview_size_small"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -17,13 +17,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name="com.kotlin.mvvm.synerzip.ui.countries.CountriesActivity"
-            android:label="@string/countries">
-        </activity>
-
-        <activity
             android:name="com.kotlin.mvvm.synerzip.ui.city.CityActivity"
-            android:label="@string/news" >
+            android:label="@string/cities" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

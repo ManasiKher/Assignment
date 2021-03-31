@@ -22,13 +22,13 @@ interface CityDao {
      * Insert articles into the database
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArticles(articles: List<City>): List<Long>
+    fun insertCities(city: City)
 
     /**
-     * Get all the articles from database
+     * Get city from database
      */
-    @Query("SELECT * FROM city_table")
-    fun getCities(): LiveData<List<City>>
+    @Query("SELECT * FROM city_table where name LIKE :title")
+    fun getCities(title:String): LiveData<City>
 
     @Query("DELETE FROM city_table")
     abstract fun deleteAllCities()

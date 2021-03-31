@@ -67,7 +67,7 @@ class CityActivity : BaseActivity() {
      * Observing for data change from DB and Network Both
      */
     private fun getSearchedCity(cityName: String) {
-        cityArticleViewModel.getNewsArticlesFromServer(cityName).observe(
+        cityArticleViewModel.getCityDetails(cityName)?.observe(
             this,
             Observer {
                 when {

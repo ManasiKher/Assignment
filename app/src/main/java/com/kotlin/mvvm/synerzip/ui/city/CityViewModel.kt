@@ -20,20 +20,19 @@ class CityViewModel @Inject constructor(
 ) : ViewModel() {
 
     /**
-     * Loading news articles from internet and database
+     * Loading cities from internet and database
      */
-    private fun getCities(countryKey: String): LiveData<Resource<City>> =
-        cityRepository.getCityDetailsFromServerOnly(countryKey)
+    private fun getCities(cityKey: String): LiveData<Resource<City?>>? =
+        cityRepository.getCityData(cityKey)
 
 
     fun getCityDetails(countryKey: String) = getCities(countryKey)
 
     /**
-     * Loading news articles from internet only
+     * Loading news cities from internet only
      */
-    private fun newsCitiesFromOnlyServer(countryKey: String) =
-        cityRepository.getCityDetailsFromServerOnly(countryKey)
+    private fun newsCitiesFromOnlyServer(cityKey: String) =
+        cityRepository.getCityDetailsFromServerOnly(cityKey)
 
-    fun getNewsArticlesFromServer(countryKey: String) = newsCitiesFromOnlyServer(countryKey)
 
 }

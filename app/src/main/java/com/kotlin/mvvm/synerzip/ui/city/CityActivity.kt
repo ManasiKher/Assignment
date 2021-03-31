@@ -2,6 +2,7 @@ package com.kotlin.mvvm.synerzip.ui.city
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.mvvm.R
@@ -48,8 +49,23 @@ class CityActivity : BaseActivity() {
         city_list.adapter = adapter
         city_list.layoutManager = LinearLayoutManager(this)
 
-        //getNewsOfCountry(intent?.getStringExtra(KEY_COUNTRY_SHORT_KEY)!!)
-        getSearchedCity("ar")
+        search_city_name.setActivated(true)
+        search_city_name.setQueryHint("Type your keyword here")
+        search_city_name.onActionViewExpanded()
+        search_city_name.setIconified(false)
+        search_city_name.clearFocus()
+
+        search_city_name.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { getSearchedCity(it) }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                return false
+            }
+        })
     }
 
     /**
@@ -66,12 +82,19 @@ class CityActivity : BaseActivity() {
                     }
                     it.status.isSuccessful() -> {
                         it?.load(city_list) { city ->
-                            val cityDetails: List<City> = emptyList()
-                            city?.let { it1 -> cityDetails.toMutableList().add(it1) }
+                            val cityDetails: ArrayList<City> = ArrayList()
+                            if (city != null) {
+                                cityDetails.add(city)
+                            }
+                            println(cityDetails)
                             adapter.replaceItems(cityDetails)
                         }
                     }
                     it.status.isError() -> {
+                        city_list.showEmptyStateView()
+                        val cityDetails: List<City> = emptyList()
+                        println(cityDetails)
+                        adapter.replaceItems(cityDetails)
                         if (it.errorMessage != null)
                             ToastUtil.showCustomToast(this, it.errorMessage.toString())
                     }

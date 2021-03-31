@@ -20,11 +20,6 @@ import kotlinx.android.synthetic.main.progress_layout_news_article.*
 
 class CityActivity : BaseActivity() {
 
-
-    companion object {
-        val KEY_COUNTRY_SHORT_KEY: String = "COUNTRY_SHORT_KEY"
-    }
-
     private lateinit var adapter: CityAdapter
 
     private val cityArticleViewModel: CityViewModel by viewModels {
@@ -49,10 +44,9 @@ class CityActivity : BaseActivity() {
         city_list.adapter = adapter
         city_list.layoutManager = LinearLayoutManager(this)
 
-        search_city_name.setActivated(true)
-        search_city_name.setQueryHint("Type your keyword here")
+        search_city_name.isActivated = true
         search_city_name.onActionViewExpanded()
-        search_city_name.setIconified(false)
+        search_city_name.isIconified = false
         search_city_name.clearFocus()
 
         search_city_name.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

@@ -51,7 +51,7 @@
                 android:layout_height="180sp">
 
                 <ImageView
-                    android:id="@+id/ivNewsImage"
+                    android:id="@+id/ivCityImage"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/image_size"
                     android:scaleType="centerCrop"
@@ -68,7 +68,7 @@
                     android:textAllCaps="true"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textSize="12sp"
                     tools:text="ABC" />
 
             </RelativeLayout>

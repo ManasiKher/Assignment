@@ -106,7 +106,7 @@ class CityActivity : BaseActivity() {
                     .error(R.drawable.loading_banner_image)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
             )
-            .into(ivNewsImage)
+            .into(ivCityImage)
     }
 
 

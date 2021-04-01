@@ -30,5 +30,6 @@ data class City(
     @ColumnInfo(name = "timezone") var timezone: Double? = 0.0,
     @ColumnInfo(name = "id") var id: Double? = 0.0,
     @ColumnInfo(name = "name") var name: String? = "",
-    @ColumnInfo(name = "cod") var cod: Double? = 0.0,
+    @ColumnInfo(name = "codt") var cod: Double? = 0.0,
+    @ColumnInfo(name = "timeStamp") var timeStamp: Long? = 0,
 )

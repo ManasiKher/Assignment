@@ -1,5 +1,6 @@
 package com.kotlin.mvvm.synerzip.app
 
+import com.facebook.stetho.Stetho
 import com.kotlin.mvvm.synerzip.di.components.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
@@ -13,5 +14,10 @@ class App : DaggerApplication() {
     private val applicationInjector = DaggerAppComponent.builder().application(this).build()
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> = applicationInjector
+
+    override fun onCreate() {
+        super.onCreate()
+        Stetho.initializeWithDefaults(this)
+    }
 
 }

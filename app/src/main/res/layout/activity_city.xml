@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.kotlin.mvvm.synerzip.ui.city.CityViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".synerzip.ui.city.CityActivity">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_city_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        app:queryHint="@string/hint_enter_city_name"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_city_name"
+        android:layout_height="0dp"
+        android:id="@+id/layout_city_data"
+        android:layout_marginStart="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginTop="@dimen/normal_padding"
+        android:layout_marginEnd="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        android:layout_marginBottom="@dimen/card_elevation"
+        app:cardElevation="@dimen/card_elevation">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_list_item">
+
+            <!-- News block -->
+            <RelativeLayout
+                android:id="@+id/relativeItemImage"
+                android:layout_width="match_parent"
+                android:layout_height="180sp">
+
+                <ImageView
+                    android:id="@+id/ivNewsImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/image_size"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/loading_banner_image" />
+
+                <TextView
+                    android:id="@+id/tvCityWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/color_transparent"
+                    android:maxLines="1"
+                    android:padding="@dimen/normal_padding"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    tools:text="ABC" />
+
+            </RelativeLayout>
+
+            <!-- News Title -->
+            <TextView
+                android:id="@+id/tvCityItemTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativeItemImage"
+                android:maxLines="2"
+                android:padding="@dimen/normal_padding"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textview_size_normal"
+                tools:text="Elon Musk says Tesla can't yet launch in India" />
+
+            <!-- Date - Time -->
+            <TextView
+                android:id="@+id/tvListItemDateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvCityItemTitle"
+                android:layout_marginStart="@dimen/normal_padding"
+                android:layout_marginLeft="@dimen/normal_padding"
+                android:layout_marginBottom="@dimen/normal_padding"
+                android:maxLines="2"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textview_size_small"/>
+
+            <TextView
+                android:id="@+id/tvItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvListItemDateTime"
+                android:maxLines="2"
+                android:padding="@dimen/normal_padding"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/textview_size_normal"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Progress and empty views -->
+    <include
+        layout="@layout/progress_layout_city"
+        tools:visibility="visible" />
+
+    <include
+        layout="@layout/empty_layout_city"
+        tools:visibility="invisible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

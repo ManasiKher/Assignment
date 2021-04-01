@@ -16,7 +16,7 @@ import com.kotlin.mvvm.synerzip.repository.model.Converters
  * App Database
  * Define all entities and access doa's here/ Each entity is a table.
  */
-@Database(entities = [City::class], version = 3, exportSchema = false)
+@Database(entities = [City::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 

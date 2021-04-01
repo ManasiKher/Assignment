@@ -31,7 +31,7 @@ class CityViewModel @Inject constructor(
     /**
      * Loading news cities from internet only
      */
-    private fun newsCitiesFromOnlyServer(cityKey: String) =
+    private fun getCitiesFromOnlyServer(cityKey: String) =
         cityRepository.getCityDetailsFromServerOnly(cityKey)
 
 

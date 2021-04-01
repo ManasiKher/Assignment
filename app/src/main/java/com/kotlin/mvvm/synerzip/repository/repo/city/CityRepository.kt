@@ -11,6 +11,7 @@ import com.kotlin.mvvm.synerzip.repository.api.network.Resource
 import com.kotlin.mvvm.synerzip.repository.db.city.CityDao
 import com.kotlin.mvvm.synerzip.repository.model.City
 import com.kotlin.mvvm.synerzip.utils.ConnectivityUtil
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -37,17 +38,18 @@ class CityRepository @Inject constructor(
      * and persist them in the database
      */
     fun getCityData(cityName: String): LiveData<Resource<City?>>? {
-
+        val date = Date()
         return object : NetworkAndDBBoundResource<City, City>(appExecutors) {
             override fun saveCallResult(item: City) {
                 if (item.name?.isNotEmpty()!!) {
-                    //cityDao.deleteAllCities()
+                    item.timeStamp = date.time
                     cityDao.insertCities(item)
                 }
             }
 
             override fun shouldFetch(data: City?) =
-                (ConnectivityUtil.isConnected(context))
+                (ConnectivityUtil.isConnected(context) &&
+                        date.time- (data?.timeStamp ?: Long.MAX_VALUE) < 86400000 )
 
             override fun loadFromDb() = cityDao.getCities(cityName)
 

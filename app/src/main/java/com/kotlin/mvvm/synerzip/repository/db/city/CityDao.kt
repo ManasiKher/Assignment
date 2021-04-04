@@ -19,7 +19,7 @@ import com.kotlin.mvvm.synerzip.repository.model.City
 interface CityDao {
 
     /**
-     * Insert articles into the database
+     * Insert City into the database
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCities(city: City)

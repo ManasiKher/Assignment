@@ -29,7 +29,7 @@ class CityViewModel @Inject constructor(
     fun getCityDetails(countryKey: String) = getCities(countryKey)
 
     /**
-     * Loading news cities from internet only
+     * Loading cities from internet only
      */
     private fun getCitiesFromOnlyServer(cityKey: String) =
         cityRepository.getCityDetailsFromServerOnly(cityKey)

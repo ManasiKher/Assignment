@@ -56,7 +56,7 @@ class AppModule {
 
 
     /**
-     * Provides NewsArticlesDao an object to access NewsArticles table from Database
+     * Provides CityDao an object to access City table from Database
      */
     @Singleton
     @Provides

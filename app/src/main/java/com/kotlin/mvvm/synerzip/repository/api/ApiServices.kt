@@ -18,8 +18,7 @@ import retrofit2.http.Query
 interface ApiServices {
 
     /**
-     * Fetch news articles from Google news using GET API Call on given Url
-     * Url would be something like this top-headlines?country=my&apiKey=XYZ
+     * Get city data with ID and city name
      */
     @GET("data/2.5/weather")
     fun getCityDetails(@Query("q") cityName: String, @Query("APPID") appId:String): LiveData<Resource<City>>

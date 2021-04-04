@@ -17,13 +17,13 @@ import kotlin.reflect.KClass
 @Module
 abstract class ViewModelModule {
     /**
-     * Binding NewsArticleViewModel using this key "NewsArticleViewModel::class"
-     * So you can get NewsArticleViewModel using "NewsArticleViewModel::class" key from factory
+     * Binding CityViewModel using this key "CityViewModel::class"
+     * So you can get CityViewModel using "CityViewModel::class" key from factory
      */
     @Binds
     @IntoMap
     @ViewModelKey(CityViewModel::class)
-    abstract fun bindNewsArticleViewModel(cityViewModel: CityViewModel): ViewModel
+    abstract fun bindCityViewModel(cityViewModel: CityViewModel): ViewModel
 
     /**
      * Binds ViewModels factory to provide ViewModels.

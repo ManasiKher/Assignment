@@ -17,6 +17,6 @@ abstract class ActivityModule {
      * Marking Activities to be available to contributes for Android Injector
      */
     @ContributesAndroidInjector
-    abstract fun contributeNewsArticlesActivity(): CityActivity
+    abstract fun contributeCityActivity(): CityActivity
 
 }

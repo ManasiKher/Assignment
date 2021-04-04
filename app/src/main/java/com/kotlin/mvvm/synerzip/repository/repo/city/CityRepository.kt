@@ -34,7 +34,7 @@ class CityRepository @Inject constructor(
     val apiKey = BuildConfig.API_KEY
 
     /**
-     * Fetch the news articles from database if exist else fetch from web
+     * Fetch the City from database if exist else fetch from web
      * and persist them in the database
      */
     fun getCityData(cityName: String): LiveData<Resource<City?>>? {
@@ -60,9 +60,9 @@ class CityRepository @Inject constructor(
     }
 
     /**
-     * Fetch the news articles from database if exist else fetch from web
+     * Fetch from database if exist else fetch from web
      * and persist them in the database
-     * LiveData<Resource<CityCource>>
+     * LiveData<Resource<CitySource>>
      */
     fun getCityDetailsFromServerOnly(cityTitle: String):
             LiveData<Resource<City>> {

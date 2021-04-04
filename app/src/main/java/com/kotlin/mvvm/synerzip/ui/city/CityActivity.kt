@@ -24,7 +24,7 @@ import java.util.*
 
 class CityActivity : BaseActivity() {
 
-    private val cityArticleViewModel: CityViewModel by viewModels {
+    private val cityViewModel: CityViewModel by viewModels {
         viewModelFactory
     }
     /**
@@ -61,7 +61,7 @@ class CityActivity : BaseActivity() {
      * Observing for data change from DB and Network Both
      */
     private fun getSearchedCity(cityName: String) {
-        cityArticleViewModel.getCityDetails(cityName)?.observe(
+        cityViewModel.getCityDetails(cityName)?.observe(
             this,
             {
                 when {
@@ -94,7 +94,7 @@ class CityActivity : BaseActivity() {
         tvCityItemTitle.text = "This is: ${city?.name}"
         val cityWeather:String ="Weather details: Temperature is: ${city?.main?.temp.toString()}" + "\nWind Speed: ${city?.wind?.speed}"
         tvCityWeather.text = cityWeather
-        val dateData = getDate(city?.dt,"dd-MM-yyyy")
+        val dateData = getDate(city?.dt)
         tvListItemDateTime.text = "Date: ${dateData}"
         tvItem.text = "TimeZone: ${city?.timezone}"
 
@@ -110,10 +110,9 @@ class CityActivity : BaseActivity() {
     }
 
 
-    fun getDate(milliSeconds: Long?, dateFormat: String?): String? {
+    private fun getDate(milliSeconds: Long?): String? {
         // Create a DateFormatter object for displaying date in specified format.
-        val formatter = SimpleDateFormat(dateFormat,Locale.US)
-
+        val formatter = SimpleDateFormat("dd-MM-yyyy",Locale.US)
         // Create a calendar object that will convert the date and time value in milliseconds to date.
         val calendar: Calendar = Calendar.getInstance()
         milliSeconds?.let { calendar.timeInMillis = it }

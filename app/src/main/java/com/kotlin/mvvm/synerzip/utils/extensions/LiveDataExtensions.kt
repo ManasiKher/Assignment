@@ -26,7 +26,6 @@ inline fun <T> LiveData<T>.observe(owner: LifecycleOwner, crossinline observer: 
  * the [f] only if status is either SUCCESS or ERROR.
  */
 fun <ResultType> Resource<ResultType>.load(list: CompleteRecyclerView, f: (ResultType?) -> Unit) {
-    list.showState(status)
     load(f)
 }
 
